@@ -1,5 +1,6 @@
 # Lists out all the projects that a user
 # has access to based on
+# * being on the same team
 # * being a superuser
 # * being in the approved users list for a project
 class ProjectsForUser

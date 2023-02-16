@@ -1,6 +1,5 @@
 # Lists out all the projects that a user
 # has access to based on
-# * being on the same team
 # * being a superuser
 # * being in the approved users list for a project
 class ProjectsForUser
@@ -24,7 +23,6 @@ class ProjectsForUser
 
   def user_on_project?(project)
     users = project.project_users
-    return true if users.empty?
     return true if @user.super_user
     users.map(&:user_id).include? @user.id
   end

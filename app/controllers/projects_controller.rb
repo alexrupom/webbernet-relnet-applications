@@ -24,6 +24,8 @@ class ProjectsController < ProjectsBaseController
       public_feed: params[:visibility] == 'Public'
     )
 
+    GrantProjectPermissionToUser.new(project, current_user.id).run
+
     flash[:success] = 'Project created'
     return redirect_to dashboard_path
   end

@@ -5,7 +5,7 @@ class ProjectUsersController < ProjectsBaseController
   end
 
   def create
-    ProjectUser.create(project: @current_project, user_id: params[:user_id])
+    GrantProjectPermissionToUser.new(@current_project, params[:user_id]).run
     redirect_back(fallback_location: root_path)
   end
 
